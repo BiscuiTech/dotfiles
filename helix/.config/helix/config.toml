@@ -5,9 +5,9 @@ theme="github_dark"
 line-number = "relative"
 scroll-lines = 1
 # auto-pairs = false
-rulers = [80, 120]
 mouse = true 
 auto-format = true
+bufferline="multiple"
 
 [editor.cursor-shape]
 insert = "bar"
