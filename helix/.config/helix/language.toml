@@ -36,3 +36,8 @@ auto-format = true
 name = "tsx"
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 auto-format = true
+
+# languages.toml
+[[language]]
+name = "markdown"
+formatter = { command = "dprint", args = ["fmt", "--stdin", "md"]}

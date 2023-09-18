@@ -111,3 +111,8 @@ export PATH=~/bin:$PATH
 #alias cargo-update="cargo install $(cargo install --list | egrep '^[a-z0-9_-]+ v[0-9.]+:$' | cut -f1 -d' ')"
 
 export GDK_BACKEND=x11
+
+export SSH_AUTH_SOCK=~/.1password/agent.sock
+
+export FLYCTL_INSTALL="/home/biscuitech/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
