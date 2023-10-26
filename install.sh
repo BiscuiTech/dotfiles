@@ -45,4 +45,4 @@ create_symlink "$HOME/dotfiles/.zshenv" "$HOME/.zshenv"
 
 # Complex config files where target depends on the env
 ## Helix
-create_complex_symlink "$HOME/dotfiles/helix/.config/helix" "$env:APPDATA/helix" "$HOME/.config/helix"
+create_complex_symlink "$HOME/dotfiles/helix" "$env:APPDATA/helix" "$HOME/.config/helix"
