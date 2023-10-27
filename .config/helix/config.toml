@@ -1,0 +1,35 @@
+theme="github_dark"
+
+
+[editor]
+line-number = "relative"
+scroll-lines = 1
+# auto-pairs = false
+mouse = true 
+auto-format = true
+bufferline="multiple"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+# hidden = true
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
+
+[keys.normal]
+g = { a = "code_action" } # Maps `ga` to show possible code actions
+"ret" = ["move_line_down", "goto_first_nonwhitespace"] # Maps the enter key to move to start of next line
+X = "extend_line_above"
+D = "delete_char_backward"
+y = "yank_main_selection_to_clipboard"
+Y = "yank_joined_to_clipboard"
+# p = "paste_clipboard_before"
+
+[keys.insert]
+# j = { k = "normal_mode" } # Maps `jk` to exit insert mode
+
