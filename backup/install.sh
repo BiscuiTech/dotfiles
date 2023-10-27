@@ -1,3 +1,0 @@
-echo $USER
-
-stow -R */
