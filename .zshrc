@@ -116,3 +116,7 @@ export SSH_AUTH_SOCK=~/.1password/agent.sock
 
 export FLYCTL_INSTALL="/home/biscuitech/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
