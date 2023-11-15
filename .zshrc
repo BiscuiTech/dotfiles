@@ -100,23 +100,5 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-PATH=/home/biscuitech/.surrealdb:$PATH
-export COLORTERM=truecolor
-export PATH=~/bin:$PATH
-
-#alias cargo-update="cargo install $(cargo install --list | egrep '^[a-z0-9_-]+ v[0-9.]+:$' | cut -f1 -d' ')"
-
-export GDK_BACKEND=x11
-
-export SSH_AUTH_SOCK=~/.1password/agent.sock
-
-export FLYCTL_INSTALL="/home/biscuitech/.fly"
-export PATH="$FLYCTL_INSTALL/bin:$PATH"
-
-
+eval "$(starship init zsh)"
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-
