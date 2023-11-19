@@ -102,3 +102,4 @@ source $ZSH/oh-my-zsh.sh
 
 eval "$(starship init zsh)"
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+export COLORTERM=truecolor
