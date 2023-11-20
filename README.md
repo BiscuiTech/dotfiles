@@ -8,3 +8,4 @@ Need to manually install these tools. Will probly need to automate all this, but
   2.2. Bash: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
 3. dprint: `cargo install --locked dprint`
 4. gitui: `cargo install gitui`
+5. marksman: https://github.com/artempyanykh/marksman/releases and move binary to ~/bin folder
