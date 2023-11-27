@@ -29,7 +29,21 @@ problems = { shortenToSingleLine = false }
 
 [language-server.eslint.config.codeAction]
 disableRuleComment = { enable = true, location = "separateLine" }
-showDocumentation = { enable = false }
+showDocumentation = { enable = true }
+
+[language-server.eslint.config.codeActionOnSave]
+enable = true
+mode = "fixAll"
+
+[language-server.eslint.config.workingDirectory]
+mode = "location"
+
+[language-server.typescript-language-server]
+args = ["--stdio"]
+command = "typescript-language-server"
+
+[language-server.typescript-language-server.config]
+documentFormatting = false
 
 [language-server.vscode-json-language-server.config]
 json = { validate = { enable = true }, format = { enable = true } }
@@ -43,10 +57,13 @@ provideFormatter = true
 
 [[language]]
 name = "typescript"
+scope = "source.ts"
+injection-regex = "(ts|typescript)"
 # language-servers = [ "typescript-language-server", "eslint", "emmet-ls" ]
-language-servers = [ "typescript-language-server", "eslint" ]
+language-servers = [ { except-features = ["format"], name = "typescript-language-server" }, "eslint" ]
 formatter = { command = "dprint", args = [ "fmt", "--stdin", "typescript" ] }
 auto-format = true
+file-types = ["ts", "mts", "cts"]
 
 [[language]]
 name = "tsx"
