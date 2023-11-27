@@ -27,5 +27,5 @@ function New-Link ($target, $link) {
 #New-Link $HOME/starship/.config/starship.toml $HOME/.config/starship.toml
 #New-Link $HOME/Microsoft.PowerShell_profile.ps1 $PROFILE
 #New-Link $HOME/ssh/.ssh/config $HOME/.ssh/config
-New-Link $HOME/helix/.config/helix $env:APPDATA/helix
+New-Link $HOME/.config/helix $env:APPDATA/helix
 New-Link $HOME/dprint/.dprint.json $HOME/.dprint.json
