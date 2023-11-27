@@ -4,13 +4,13 @@ name = "rust"
 # [language-server.rust-analyzer]
 # config = { procMacro = { ignored = { leptos_macro = ["component", "server"] } } }
 
-[language.config.hints]
-assignVariableTypes = true
-compositeLiteralFields = true
-constantValues = true
-functionTypeParameters = true
-parameterNames = true
-rangeVariableTypes = true
+# [language.config.hints]
+# assignVariableTypes = true
+# compositeLiteralFields = true
+# constantValues = true
+# functionTypeParameters = true
+# parameterNames = true
+# rangeVariableTypes = true
 
 [language-server.eslint]
 command = "vscode-eslint-language-server"
