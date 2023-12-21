@@ -102,7 +102,7 @@ source $ZSH/oh-my-zsh.sh
 
 eval "$(starship init zsh)"
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-
+git config --global alias.wip 'git reset HEAD~1; git add .;git commit -m "wip";'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
