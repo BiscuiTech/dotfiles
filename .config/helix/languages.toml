@@ -1,17 +1,3 @@
-# [[language]]
-# name = "rust"
-
-# [language-server.rust-analyzer]
-# config = { procMacro = { ignored = { leptos_macro = ["component", "server"] } } }
-
-# [language.config.hints]
-# assignVariableTypes = true
-# compositeLiteralFields = true
-# constantValues = true
-# functionTypeParameters = true
-# parameterNames = true
-# rangeVariableTypes = true
-
 [language-server.eslint]
 command = "vscode-eslint-language-server"
 args = ["--stdio"]
@@ -44,6 +30,11 @@ command = "typescript-language-server"
 
 [language-server.typescript-language-server.config]
 documentFormatting = false
+
+[language-server.astro-ls]
+command = "astro-ls"
+args = ["--stdio"]
+config = {typescript = {tsdk = "~/.nvm/versions/node/v20.10.0/lib"}, environment = "node"}
 
 [language-server.vscode-json-language-server.config]
 json = { validate = { enable = true }, format = { enable = true } }
@@ -115,3 +106,9 @@ auto-format = true
 [[language]]
 name = "markdown"
 formatter = { command = "dprint", args = ["fmt", "--stdin", "md"]}
+
+[[language]]
+name = "astro"
+auto-format = true
+language-servers = [ "astro-ls" ]
+
