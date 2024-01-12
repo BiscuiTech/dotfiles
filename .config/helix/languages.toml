@@ -52,7 +52,8 @@ scope = "source.ts"
 injection-regex = "(ts|typescript)"
 language-servers = [ "typescript-language-server", "eslint" ]
 # language-servers = [ { except-features = ["format"], name = "typescript-language-server" }, "eslint" ]
-formatter = { command = "prettier", args = [ "--parser", "typescript" ] }
+# formatter = { command = "prettier", args = [ "--parser", "babel-ts" ] }
+formatter = "prettier"
 # formatter = { command = "dprint", args = [ "fmt", "--stdin", "typescript" ] }
 auto-format = true
 file-types = ["ts", "mts", "cts"]
@@ -60,21 +61,24 @@ file-types = ["ts", "mts", "cts"]
 [[language]]
 name = "tsx"
 language-servers = [ "typescript-language-server", "eslint" ]
-formatter = { command = "prettier", args = [ "--parser", "typescript" ] }
+# formatter = { command = "prettier", args = [ "--parser", "babel-ts" ] }
+formatter = "prettier"
 # formatter = { command = "dprint", args = [ "fmt", "--stdin", "tsx" ] }
 auto-format = true
 
 [[language]]
 name = "javascript"
 language-servers = [ "typescript-language-server", "eslint" ]
-formatter = { command = "prettier", args = [ "--parser", "typescript" ] }
+# formatter = { command = "prettier", args = [ "--parser", "babel-ts" ] }
+formatter = "prettier"
 # formatter = { command = "dprint", args = [ "fmt", "--stdin", "javascript" ] }
 auto-format = true
 
 [[language]]
 name = "jsx"
 language-servers = [ "typescript-language-server", "eslint" ]
-formatter = { command = "prettier", args = [ "--parser", "typescript" ] }
+# formatter = { command = "prettier", args = [ "--parser", "babel-ts" ] }
+formatter = "prettier"
 # formatter = { command = "dprint", args = [ "fmt", "--stdin", "jsx" ] }
 auto-format = true
 
