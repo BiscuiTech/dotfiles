@@ -3,6 +3,7 @@
 	longpaths = true
 	eol = lf
 	autocrlf = input
+	pager = delta
 [user]
 	email = jhuet@biscui.tech
 	name = Jean-Cédric Huet
@@ -27,3 +28,17 @@
 [maintenance]
 	repo = C:/cbcsrc/vcinq
 	repo = C:/cbcsrc/DotCa
+[merge]
+	conflictstyle = zdiff3
+	tool = meld
+[rebase]
+	autostash = true
+[init]
+	defaultBranch = main
+[rerere]
+	enabled = true
+[diff]
+	algorithm = histogram
+	colorMoved = default
+[branch]
+	sort = -committerdate
