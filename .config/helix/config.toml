@@ -35,6 +35,7 @@ D = "delete_char_backward"
 y = "yank_main_selection_to_clipboard"
 Y = "yank_joined_to_clipboard"
 # p = "paste_clipboard_before"
+"H" = ":toggle lsp.display-inlay-hints"
 
 [keys.insert]
 # j = { k = "normal_mode" } # Maps `jk` to exit insert mode
