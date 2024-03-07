@@ -3,10 +3,10 @@ command = "vscode-eslint-language-server"
 args = ["--stdio"]
 
 [language-server.eslint.config]
-# codeActionsOnSave = { mode = "all", "source.fixAll.eslint" = true }
-# format = { enable = true }
+codeActionsOnSave = { mode = "all", "source.fixAll.eslint" = true }
+format = { enable = true }
 nodePath = ""
-# quiet = false
+quiet = false
 rulesCustomizations = []
 run = "onType"
 validate = "on"
@@ -48,13 +48,14 @@ provideFormatter = true
 
 [[language]]
 name = "typescript"
-scope = "source.ts"
-injection-regex = "(ts|typescript)"
+# scope = "source.ts"
+# injection-regex = "(ts|typescript)"
 language-servers = [ "typescript-language-server", "eslint" ]
 # language-servers = [ { except-features = ["format"], name = "typescript-language-server" }, "eslint" ]
 formatter = { command = "prettier", args = [ "--parser", "babel-ts" ] }
 # formatter = {command = "prettier"}
 # formatter = { command = "dprint", args = [ "fmt", "--stdin", "typescript" ] }
+# roots = ["package-lock.json", "tsconfig.json", ".prettierrc.json"]
 auto-format = true
 file-types = ["ts", "mts", "cts"]
 
@@ -63,7 +64,9 @@ name = "tsx"
 language-servers = [ "typescript-language-server", "eslint" ]
 formatter = { command = "prettier", args = [ "--parser", "babel-ts" ] }
 # formatter = { command = "dprint", args = [ "fmt", "--stdin", "tsx" ] }
+# roots = ["package-lock.json", "tsconfig.json", ".prettierrc.json"]
 auto-format = true
+file-types = ["tsx", "mtsx", "ctsx"]
 
 [[language]]
 name = "javascript"
