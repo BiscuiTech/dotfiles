@@ -47,7 +47,7 @@ scope = "source.ts"
 injection-regex = "(ts|typescript)"
 language-servers = [ "typescript-language-server", "eslint" ]
 # language-servers = [ { except-features = ["format"], name = "typescript-language-server" }, "eslint" ]
-formatter = { command = "prettier", args = ["--stdin-filepath", "file.ts"] }
+formatter = { command = "prettier", args = ["--stdin-filepath", "file.ts", "--parser", "typescript"] }
 # formatter = { command = "dprint", args = [ "fmt", "--stdin", "typescript" ] }
 auto-format = true
 file-types = ["ts", "mts", "cts"]
