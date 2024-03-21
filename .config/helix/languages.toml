@@ -3,7 +3,6 @@ command = "vscode-eslint-language-server"
 args = ["--stdio"]
 
 [language-server.eslint.config]
-codeActionsOnSave = { mode = "all", "source.fixAll.eslint" = true }
 format = { enable = true }
 nodePath = ""
 quiet = false
@@ -19,7 +18,8 @@ showDocumentation = { enable = true }
 
 [language-server.eslint.config.codeActionOnSave]
 enable = true
-mode = "fixAll"
+mode = "all"
+source = { fixAll = { eslint = true } }
 
 [language-server.eslint.config.workingDirectory]
 mode = "location"
@@ -30,11 +30,6 @@ command = "typescript-language-server"
 
 [language-server.typescript-language-server.config]
 documentFormatting = false
-
-[language-server.astro-ls]
-command = "astro-ls"
-args = ["--stdio"]
-config = {typescript = {tsdk = "~/.nvm/versions/node/v20.10.0/lib"}, environment = "node"}
 
 [language-server.vscode-json-language-server.config]
 json = { validate = { enable = true }, format = { enable = true } }
@@ -48,21 +43,20 @@ provideFormatter = true
 
 [[language]]
 name = "typescript"
-# scope = "source.ts"
-# injection-regex = "(ts|typescript)"
+scope = "source.ts"
+injection-regex = "(ts|typescript)"
 language-servers = [ "typescript-language-server", "eslint" ]
 # language-servers = [ { except-features = ["format"], name = "typescript-language-server" }, "eslint" ]
-formatter = { command = "prettier", args = [ "--parser", "babel-ts" ] }
-# formatter = {command = "prettier"}
+formatter = { command = "prettier", args = ["--stdin-filepath", "file.ts"] }
 # formatter = { command = "dprint", args = [ "fmt", "--stdin", "typescript" ] }
-# roots = ["package-lock.json", "tsconfig.json", ".prettierrc.json"]
 auto-format = true
 file-types = ["ts", "mts", "cts"]
 
 [[language]]
 name = "tsx"
 language-servers = [ "typescript-language-server", "eslint" ]
-formatter = { command = "prettier", args = [ "--parser", "babel-ts" ] }
+# formatter = { command = "prettier", args = [ "--parser", "babel-ts" ] }
+formatter = { command = "prettier", args = ["--stdin-filepath", "file.ts"] }
 # formatter = { command = "dprint", args = [ "fmt", "--stdin", "tsx" ] }
 # roots = ["package-lock.json", "tsconfig.json", ".prettierrc.json"]
 auto-format = true
@@ -71,7 +65,8 @@ file-types = ["tsx", "mtsx", "ctsx"]
 [[language]]
 name = "javascript"
 language-servers = [ "typescript-language-server", "eslint" ]
-formatter = { command = "prettier", args = [ "--parser", "babel-ts" ] }
+# formatter = { command = "prettier", args = [ "--parser", "babel-ts" ] }
+formatter = { command = "prettier", args = ["--stdin-filepath", "file.ts"] }
 # formatter = { command = "dprint", args = [ "fmt", "--stdin", "javascript" ] }
 auto-format = true
 
