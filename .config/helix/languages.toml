@@ -55,10 +55,8 @@ file-types = ["ts", "mts", "cts"]
 [[language]]
 name = "tsx"
 language-servers = [ "typescript-language-server", "eslint" ]
-# formatter = { command = "prettier", args = [ "--parser", "babel-ts" ] }
-formatter = { command = "prettier", args = ["--stdin-filepath", "file.ts"] }
+formatter = { command = "prettier", args = ["--stdin-filepath", "file.tsx"] }
 # formatter = { command = "dprint", args = [ "fmt", "--stdin", "tsx" ] }
-# roots = ["package-lock.json", "tsconfig.json", ".prettierrc.json"]
 auto-format = true
 file-types = ["tsx", "mtsx", "ctsx"]
 
