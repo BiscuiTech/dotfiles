@@ -14,7 +14,7 @@
 	tree = log --oneline --graph --decorate --all
 	logline = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	wip = "git reset HEAD~1; git add .;git commit -m \"wip\";"
-	git-summary = C:\\Users\\HUETJ/git-summary
+	git-summary = C:\\Users\\logit/git-summary
 [gui]
 	warndetachedcommit = true
 	pruneduringfetch = true
