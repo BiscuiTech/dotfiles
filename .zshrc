@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/home/biscuitech/.local/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -101,24 +101,5 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 eval "$(starship init zsh)"
+
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-git config --global alias.wip 'git reset HEAD~1; git add .;git commit -m "wip";'
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-PATH=/home/biscuitech/.surrealdb:$PATH
-export COLORTERM=truecolor
-export PATH=~/bin:$PATH
-
-#alias cargo-update="cargo install $(cargo install --list | egrep '^[a-z0-9_-]+ v[0-9.]+:$' | cut -f1 -d' ')"
-
-export GDK_BACKEND=x11
-
-export SSH_AUTH_SOCK=~/.1password/agent.sock
-
-export FLYCTL_INSTALL="/home/biscuitech/.fly"
-export PATH="$FLYCTL_INSTALL/bin:$PATH"
-
-eval "$(zoxide init zsh)"
