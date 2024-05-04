@@ -27,6 +27,21 @@ max-wrap = 25 # increase value to reduce forced mid-word wrapping
 max-indent-retain = 0
 # wrap-indicator = ""  # set wrap-indicator to "" to hide it
 
+[editor.statusline]
+left = ["mode", "spinner", "version-control"]
+center = ["file-name"]
+right = [ "diagnostics",
+  "selections",
+  "position",
+  "file-encoding",
+  "file-line-ending",
+  "file-type",
+]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
 [keys.normal]
 g = { a = "code_action" } # Maps `ga` to show possible code actions
 "ret" = ["move_line_down", "goto_first_nonwhitespace"] # Maps the enter key to move to start of next line
@@ -39,4 +54,3 @@ y = ":clipboard-yank-join"
 
 [keys.insert]
 # j = { k = "normal_mode" } # Maps `jk` to exit insert mode
-
