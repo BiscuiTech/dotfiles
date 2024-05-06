@@ -28,8 +28,8 @@ max-indent-retain = 0
 # wrap-indicator = ""  # set wrap-indicator to "" to hide it
 
 [editor.statusline]
-left = ["mode", "spinner", "version-control"]
-center = ["file-name"]
+left = ["mode", "spinner", "file-name"]
+center = ["version-control"]
 right = [ "diagnostics",
   "selections",
   "position",
