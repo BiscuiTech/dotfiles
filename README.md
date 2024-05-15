@@ -7,8 +7,9 @@ Need to manually install these tools. Will probly need to automate all this, but
 - [Windows installer](https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe)
 - [marksman](https://github.com/artempyanykh/marksman/releases) and move binary to ~/bin folder
 - `cargo install --locked dprint eza`
-- `winget install ajeetdsouza.zoxide junegunn.fzf StephanDilly.gitui` 
-
+- `winget install ajeetdsouza.zoxide junegunn.fzf StephanDilly.gitui BurntSushi.ripgrep.MSVC sharkdp.fd`
+- `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser;Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression` 
+- `scoop install yazi unar jq poppler`
 
 ## Linux
 
