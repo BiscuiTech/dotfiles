@@ -1,35 +1,15 @@
-[language-server.eslint]
-command = "vscode-eslint-language-server"
-args = ["--stdio"]
-
-[language-server.eslint.config]
+[language-server.vscode-eslint-language-server.config]
 format = { enable = true }
-nodePath = ""
 quiet = false
-rulesCustomizations = []
-run = "onType"
-validate = "on"
-experimental = {useFlatConfig = false}
-problems = { shortenToSingleLine = false }
 
-[language-server.eslint.config.codeAction]
+[language-server.vscode-eslint-language-server.config.codeAction]
 disableRuleComment = { enable = true, location = "separateLine" }
 showDocumentation = { enable = true }
 
-[language-server.eslint.config.codeActionOnSave]
+[language-server.vscode-eslint-language-server.config.codeActionOnSave]
 enable = true
 mode = "all"
 source = { fixAll = { eslint = true } }
-
-[language-server.eslint.config.workingDirectory]
-mode = "location"
-
-[language-server.typescript-language-server]
-args = ["--stdio"]
-command = "typescript-language-server"
-
-[language-server.typescript-language-server.config]
-documentFormatting = false
 
 [language-server.vscode-json-language-server.config]
 json = { validate = { enable = true }, format = { enable = true } }
@@ -45,7 +25,7 @@ provideFormatter = true
 name = "typescript"
 scope = "source.ts"
 injection-regex = "(ts|typescript)"
-language-servers = [ "typescript-language-server", "eslint" ]
+language-servers = [ "typescript-language-server", "vscode-eslint-language-server" ]
 formatter = { command = "prettier", args = ["--stdin-filepath", "file.ts", "--parser", "babel-ts"] }
 # formatter = { command = "dprint", args = [ "fmt", "--stdin", "typescript" ] }
 auto-format = true
@@ -53,7 +33,7 @@ file-types = ["ts", "mts", "cts"]
 
 [[language]]
 name = "tsx"
-language-servers = [ "typescript-language-server", "eslint" ]
+language-servers = [ "typescript-language-server", "vscode-eslint-language-server" ]
 formatter = { command = "prettier", args = ["--stdin-filepath", "file.tsx"] }
 # formatter = { command = "dprint", args = [ "fmt", "--stdin", "tsx" ] }
 auto-format = true
@@ -61,7 +41,7 @@ file-types = ["tsx", "mtsx", "ctsx"]
 
 [[language]]
 name = "javascript"
-language-servers = [ "typescript-language-server", "eslint" ]
+language-servers = [ "typescript-language-server", "vscode-eslint-language-server" ]
 # formatter = { command = "prettier", args = [ "--parser", "babel-ts" ] }
 formatter = { command = "prettier", args = ["--stdin-filepath", "file.js"] }
 # formatter = { command = "dprint", args = [ "fmt", "--stdin", "javascript" ] }
@@ -69,7 +49,7 @@ auto-format = true
 
 [[language]]
 name = "jsx"
-language-servers = [ "typescript-language-server", "eslint" ]
+language-servers = [ "typescript-language-server", "vscode-eslint-language-server" ]
 formatter = { command = "prettier", args = [ "--stdin-filepath", "file.jsx"] }
 # formatter = { command = "dprint", args = [ "fmt", "--stdin", "jsx" ] }
 auto-format = true
