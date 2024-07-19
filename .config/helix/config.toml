@@ -8,6 +8,7 @@ scroll-lines = 1
 mouse = true 
 auto-format = true
 bufferline="multiple"
+end-of-line-diagnostics = "hint"
 
 [editor.cursor-shape]
 insert = "bar"
@@ -41,6 +42,9 @@ separator = "│"
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "SELECT"
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
 
 [keys.normal]
 g = { a = "code_action" } # Maps `ga` to show possible code actions
