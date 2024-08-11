@@ -108,8 +108,6 @@ alias ls="eza"
 export COLORTERM=truecolor
 source ~/.profile
 
-~/spack/share/spack/setup-env.sh
-
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
