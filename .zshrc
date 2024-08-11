@@ -100,6 +100,14 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias ls="eza"
+
 export COLORTERM=truecolor
 source ~/.profile
 
+~/spack/share/spack/setup-env.sh
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
+eval "$(zoxide init zsh)"
