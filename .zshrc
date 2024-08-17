@@ -111,6 +111,6 @@ source ~/.profile
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
-eval "$(zoxide init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
