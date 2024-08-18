@@ -107,10 +107,10 @@ alias ls="eza"
 
 export COLORTERM=truecolor
 source ~/.profile
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
 eval "$(zoxide init --cmd cd zsh)"
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
