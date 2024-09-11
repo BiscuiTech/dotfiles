@@ -9,7 +9,7 @@ Need to manually install these tools. Will probly need to automate all this, but
 - `cargo install --locked dprint eza`
 - `winget install ajeetdsouza.zoxide junegunn.fzf StephanDilly.gitui BurntSushi.ripgrep.MSVC sharkdp.fd`
 - `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser;Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression` 
-- `scoop install yazi unar jq poppler`
+- `scoop install 7zip jq poppler imagemagick unar`
 
 ## Linux
 
