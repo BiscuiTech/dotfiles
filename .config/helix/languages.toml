@@ -36,7 +36,7 @@ file-types = ["ts", "mts", "cts"]
 name = "tsx"
 # TODO: lang-servers for tsx are borked, something with the extracted eslint lsp
 # language-servers = [ "typescript-language-server", "vscode-eslint-language-server" ]
-formatter = { command = "prettier", args = ["--stdin-filepath", "file.tsx"] }
+formatter = { command = "prettier", args = ["--stdin-filepath", "file.tsx" , "--parser", "babel-ts"] }
 # formatter = { command = "dprint", args = [ "fmt", "--stdin", "tsx" ] }
 auto-format = true
 file-types = ["tsx", "mtsx", "ctsx"]
