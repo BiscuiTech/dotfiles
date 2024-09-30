@@ -52,7 +52,7 @@ g = { a = "code_action" } # Maps `ga` to show possible code actions
 "S-ret" = ["move_line_up", "goto_first_nonwhitespace"] # Maps the enter key to move to start of next line
 X = "extend_line_above"
 D = "delete_char_backward"
-y = ":clipboard-yank-join"
+# y = ":clipboard-yank-join"
 # Y = "yank_joined_to_clipboard"
 # p = "paste_clipboard_before"
 "H" = ":toggle lsp.display-inlay-hints"
