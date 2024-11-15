@@ -56,6 +56,11 @@ D = "delete_char_backward"
 # Y = "yank_joined_to_clipboard"
 # p = "paste_clipboard_before"
 "H" = ":toggle lsp.display-inlay-hints"
+# Move line up, down, right, left
+A-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+A-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+A-h = ["delete_selection", "move_char_left", "paste_before"]
+A-l = ["delete_selection", "move_char_right", "paste_after"] 
 
 [keys.insert]
 # j = { k = "normal_mode" } # Maps `jk` to exit insert mode
