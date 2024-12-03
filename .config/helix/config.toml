@@ -4,7 +4,6 @@ theme="github_dark"
 [editor]
 line-number = "relative"
 scroll-lines = 1
-# auto-pairs = false
 mouse = true 
 auto-format = true
 bufferline="multiple"
@@ -20,13 +19,12 @@ select = "underline"
 
 [editor.lsp]
 display-messages = true
-display-inlay-hints = true
+display-inlay-hints = false
 
 [editor.soft-wrap]
 enable = true
 max-wrap = 25 # increase value to reduce forced mid-word wrapping
 max-indent-retain = 0
-# wrap-indicator = ""  # set wrap-indicator to "" to hide it
 
 [editor.statusline]
 left = ["mode", "spinner", "file-name"]
@@ -45,6 +43,11 @@ mode.select = "SELECT"
 
 [editor.inline-diagnostics]
 cursor-line = "warning"
+
+[editor.indent-guides]
+render = true
+character = "┊" # Some characters that work well: "▏", "╎", "┆", "┊", "⸽"
+skip-levels = 1
 
 [keys.normal]
 g = { a = "code_action" } # Maps `ga` to show possible code actions
