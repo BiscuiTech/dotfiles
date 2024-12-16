@@ -8,6 +8,7 @@ mouse = true
 auto-format = true
 bufferline="multiple"
 end-of-line-diagnostics = "hint"
+# rulers = [80]
 
 [editor.cursor-shape]
 insert = "bar"
