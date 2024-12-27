@@ -90,3 +90,13 @@ name = "astro"
 auto-format = true
 language-servers = [ "astro-ls" ]
 
+
+[[language]]
+name = "rust"
+
+[language-server.rust-analyzer]
+config = { procMacro = { ignored = { leptos_macro = [
+    # Optional:
+    # "component",
+    "server"
+] } } }
