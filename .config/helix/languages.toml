@@ -100,3 +100,11 @@ config = { procMacro = { ignored = { leptos_macro = [
     # "component",
     "server"
 ] } } }
+
+[language-server.sql-language-server]
+command = "sql-language-server"
+args = ["up", "--method", "stdio"]
+
+[[language]]
+name = "sql"
+language-servers = [ "sql-language-server" ]
