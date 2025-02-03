@@ -51,10 +51,12 @@ auto-format = true
 
 [[language]]
 name = "jsx"
+# TODO: lang-servers for tsx are borked, something with the extracted eslint lsp
 # language-servers = [ "typescript-language-server", "vscode-eslint-language-server" ]
-formatter = { command = "prettier", args = [ "--stdin-filepath", "file.jsx"] }
-# formatter = { command = "dprint", args = [ "fmt", "--stdin", "jsx" ] }
+formatter = { command = "prettier", args = ["--stdin-filepath", "file.jsx" , "--parser", "babel-ts"] }
+# formatter = { command = "dprint", args = [ "fmt", "--stdin", "tsx" ] }
 auto-format = true
+# file-types = ["tsx", "mtsx", "ctsx"]
 
 [[language]]
 name = "json"
