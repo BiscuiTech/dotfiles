@@ -58,10 +58,10 @@ formatter = { command = "prettier", args = ["--stdin-filepath", "file.jsx" , "--
 auto-format = true
 # file-types = ["tsx", "mtsx", "ctsx"]
 
-[[language]]
-name = "json"
-formatter = { command = "dprint", args = [ "fmt", "--stdin", "json" ] }
-auto-format = true
+# [[language]]
+# name = "json"
+# formatter = { command = "dprint", args = [ "fmt", "--stdin", "json" ] }
+# auto-format = true
 
 [[language]]
 name = "html"
