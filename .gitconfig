@@ -8,18 +8,26 @@
 	email = jhuet@biscui.tech
 	name = Jean-Cédric Huet
 	signingkey = ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDgWZMUUEmrO8pYgocBHhAcu7WOZnTg9ZOyQt9nE9hJ536FauwGIto+37wrOny4kSrdVCmL+AOsNIoq2xJn66YGz6Elo/FT9pv6UW4Wz2v1gcSA//I6hQFiq+NylbXeayjKDYe3R2mnuM9H9jcKV6AnNRZol/eu3v2laBz0hKcnZ/DImgdrcXlWAcZCQ5mQn2WArr1eDEjb12aSbm+z5c2CbUK4URfmuke5pTY/8zc8ZXCvcbHvI7o9GtpqvlabSj0+KG8xwKsl3/fEb+woYItl9ut6HZ7DenBA/RSvCJOY0F/M1ebjs30HHkH7AFnESQjucf4+6V3PIE3KJu7riN/8UkdJUAa5rJ5ll2VkmmOn8yLM4ELexsS9eEMlAsE+mQbOxou0bsKofQI4QuH4r0upA9b1t7J9Z1Q4jU03R27/L4IEMAIxD1ZsuE/YU4QandoEvTMZJtBWSa80iZvg9Mrz4Q2aCAD7vHALbiBKUkcqMHJpzXQtNW5DXdLJKujEgNF/D48z1/Zwmc1ARGuOVnnD2NiuFqlYOT+4FIhYw0v341q5FZJ2yWdM/SnIMhrfXiHqiC0WxgtcGp/pnD77OTijxuR6JKLXwhkuewDln1oU3ClLrQi6xn9BQuh9Zp5oobzlkNkMPotNeYvYRk/wQHoMJWjg6QrCqESNMQfDlrXL7Q==
+[commit]
+	verbose = true
 [pull]
 	rebase = true
 [alias]
 	tree = log --oneline --graph --decorate --all
 	logline = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	wip = "git reset HEAD~1; git add .;git commit -m wip;"
-	git-summary = C:\\Users\\HUETJ/git-summary
+	wip = "git reset HEAD~1; git add .;git commit -m \"wip\";"
+	git-summary = C:\\Users\\jhuet/git-summary
 [gui]
 	warndetachedcommit = true
 	pruneduringfetch = true
 [push]
+	default = simple
 	autoSetupRemote = true
+	followTags = true
+[fetch]
+	prune = true
+	pruneTags = true
+	all = true
 [maintenance]
 	repo = C:/cbcsrc/vcinq
 	repo = C:/cbcsrc/DotCa
@@ -28,18 +36,29 @@
 	tool = meld
 [rebase]
 	autostash = true
+	autoSquash = true
+	updateRefs = true
 [init]
 	defaultBranch = main
 [rerere]
 	enabled = true
+	autoupdate = true
 [diff]
 	algorithm = histogram
-	colorMoved = default
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
 [branch]
 	sort = -committerdate
+[tag]
+	sort = version:refname
 [credential "https://github.com"]
 	helper = 
-	helper = !/usr/bin/gh auth git-credential
+	helper = !'C:\\Program Files\\GitHub CLI\\gh.exe' auth git-credential
 [credential "https://gist.github.com"]
 	helper = 
-	helper = !/usr/bin/gh auth git-credential
+	helper = !'C:\\Program Files\\GitHub CLI\\gh.exe' auth git-credential
+[column]
+	ui = auto
+[help]
+	autocorrect = prompt
