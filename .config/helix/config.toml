@@ -9,6 +9,7 @@ auto-format = true
 bufferline="multiple"
 end-of-line-diagnostics = "hint"
 # rulers = [80]
+shell = ["pwsh.exe","-NoLogo","-NoProfile","-NoProfileLoadTime","-Command","$PSStyle.OutputRendering='PlainText';"]
 
 [editor.cursor-shape]
 insert = "bar"
@@ -64,7 +65,36 @@ D = "delete_char_backward"
 A-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 A-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
 A-h = ["delete_selection", "move_char_left", "paste_before"]
-A-l = ["delete_selection", "move_char_right", "paste_after"] 
+A-l = ["delete_selection", "move_char_right", "paste_after"]
+# Works only in Unix systems
+# # C-r = [
+#     ":write-all",
+#     ":insert-output scooter >/dev/tty",
+#     ":redraw",
+#     ":reload-all"
+# ]
 
 [keys.insert]
 # j = { k = "normal_mode" } # Maps `jk` to exit insert mode
+
+[keys.normal.space]
+# Kinda works on Windows, but prefers Unix systems
+e = [
+  ":sh rm  /tmp/unique-file-h21a434",
+  ":insert-output yazi '%{buffer_name}' --chooser-file=/tmp/unique-file-h21a434",
+  ":insert-output echo \"x1b[?1049h\" > /dev/tty",
+  ":open %sh{cat /tmp/unique-file-h21a434}",
+  ":redraw",
+  ":set mouse false",
+  ":set mouse true"
+]
+# Kinda works on Windows, but prefers Unix systems
+E = [
+  ":sh rm  /tmp/unique-file-u41ae14",
+  ":insert-output yazi '%{workspace_directory}' --chooser-file=/tmp/unique-file-u41ae14",
+  ":insert-output echo \"x1b[?1049h\" > /dev/tty",
+  ":open %sh{cat /tmp/unique-file-u41ae14}",
+  ":redraw",
+  ":set mouse false",
+  ":set mouse true"
+]
