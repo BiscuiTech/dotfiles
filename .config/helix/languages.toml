@@ -1,16 +1,3 @@
-# [language-server.vscode-eslint-language-server.config]
-# format = { enable = true }
-# quiet = false
-
-# [language-server.vscode-eslint-language-server.config.codeAction]
-# disableRuleComment = { enable = true, location = "separateLine" }
-# showDocumentation = { enable = true }
-
-# [language-server.vscode-eslint-language-server.config.codeActionOnSave]
-# enable = true
-# mode = "all"
-# source = { fixAll = { eslint = true } }
-
 [language-server.vscode-json-language-server.config]
 json = { validate = { enable = true }, format = { enable = true } }
 provideFormatter = true
