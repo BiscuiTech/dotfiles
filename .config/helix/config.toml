@@ -55,7 +55,8 @@ skip-levels = 1
 g = { a = "code_action" } # Maps `ga` to show possible code actions
 "ret" = ["move_line_down", "goto_first_nonwhitespace"] # Maps the enter key to move to start of next line
 "S-ret" = ["move_line_up", "goto_first_nonwhitespace"] # Maps the enter key to move to start of next line
-X = "extend_line_above"
+x = "select_line_below"
+X = "select_line_above"
 D = "delete_char_backward"
 # y = ":clipboard-yank-join"
 # Y = "yank_joined_to_clipboard"
@@ -73,7 +74,15 @@ A-l = ["delete_selection", "move_char_right", "paste_after"]
 #     ":redraw",
 #     ":reload-all"
 # ]
-
+C-g = [
+    ":write-all",
+    ":new",
+    ":insert-output lazygit",
+    # ":insert-output gitui >/dev/tty",
+    ":buffer-close!",
+    ":redraw",
+    ":reload-all"
+]
 [keys.insert]
 # j = { k = "normal_mode" } # Maps `jk` to exit insert mode
 
