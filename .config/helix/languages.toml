@@ -13,7 +13,7 @@ name = "typescript"
 scope = "source.ts"
 injection-regex = "(ts|typescript)"
 # TODO: lang-servers for tsx are borked, something with the extracted eslint lsp
-# language-servers = [ "typescript-language-server", "vscode-eslint-language-server" ]
+language-servers = [ "typescript-language-server", "vscode-eslint-language-server" ]
 formatter = { command = "prettier", args = ["--stdin-filepath", "file.ts", "--parser", "babel-ts"] }
 # formatter = { command = "dprint", args = [ "fmt", "--stdin", "typescript" ] }
 auto-format = true
