@@ -20,3 +20,4 @@ Need to manually install these tools. Will probly need to automate all this, but
 - `npm install -g graphql-language-service-server eslint prettier vscode-langservers-extracted typescript-language-server @astrojs/language-server prettier-plugin-astro`
 - `cargo install --locked dprint gitui eza harper-ls rip2`
 - `cargo install coreutils`
+- scoop install fd
