@@ -127,7 +127,7 @@ if [[ -z "$ZELLIJ" ]]; then
         exit
     fi
 fi
-## Keys to expand selection
+# Keys to expand selection
 
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 export HELIX_RUNTIME=~/source/helix/runtime

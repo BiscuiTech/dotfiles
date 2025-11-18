@@ -127,7 +127,7 @@ later(function()
     },
     -- Map of filetype to formatters
     -- Make sure that necessary CLI tool is available
-    formatters_by_ft = { 
+    formatters_by_ft = {
       lua = { 'stylua' },
       javascript = { "prettierd", "prettier", stop_after_first = true },
       typescript = { "prettierd", "prettier", stop_after_first = true }
@@ -137,7 +137,7 @@ end)
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
   callback = function(args)
-    require("conform").format({bufnr = args.buf})
+    require("conform").format({ bufnr = args.buf })
   end,
 })
 
@@ -164,7 +164,12 @@ later(function() add('rafamadriz/friendly-snippets') end)
 -- You can use it like so:
 later(function()
   add('mason-org/mason.nvim')
+  add('mason-org/mason-lspconfig.nvim')
   require('mason').setup()
+  local mason_lspconfig = require('mason-lspconfig')
+  mason_lspconfig.setup({
+    ensure_installed = { "lua_ls", "ts_ls" }
+  })
 end)
 
 -- Beautiful, usable, well maintained color schemes outside of 'mini.nvim' and
@@ -180,19 +185,19 @@ end)
 --   vim.cmd('color everforest')
 -- end)
 
-later(function() 
+later(function()
   add({
-    source = 'folke/snacks.nvim',
-    checkout = 'main'
-  },
-  { lazygit = {} }
+      source = 'folke/snacks.nvim',
+      checkout = 'main'
+    },
+    { lazygit = {} }
   )
 end)
 vim.keymap.set('n', '<leader>gG', function()
   Snacks.lazygit.open()
-end, { desc = 'lazygit'})
+end, { desc = 'lazygit' })
 
-vim.keymap.set('n', '<space>d', vim.diagnostic.setloclist, {desc = "Add buffer diagnostics to the location list."})
+vim.keymap.set('n', '<space>d', vim.diagnostic.setloclist, { desc = "Add buffer diagnostics to the location list." })
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
@@ -228,5 +233,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
-vim.lsp.enable('ts_ls')
-
+-- vim.lsp.enable({
+--   'ts_ls',
+--   'astro',
+--   'eslint',
+--   'rust_analyzer',
+--   'marksman',
+--   'lua_ls'
+-- })
