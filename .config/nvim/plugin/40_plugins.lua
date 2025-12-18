@@ -31,14 +31,13 @@ local now_if_args = _G.Config.now_if_args
 now_if_args(function()
   add({
     source = 'nvim-treesitter/nvim-treesitter',
-    -- Use `main` branch since `master` branch is frozen, yet still default
-    checkout = 'main',
     -- Update tree-sitter parser after plugin is updated
     hooks = { post_checkout = function() vim.cmd('TSUpdate') end },
   })
   add({
     source = 'nvim-treesitter/nvim-treesitter-textobjects',
-    -- Same logic as for 'nvim-treesitter'
+    -- Use `main` branch since `master` branch is frozen, yet still default
+    -- It is needed for compatibility with 'nvim-treesitter' `main` branch
     checkout = 'main',
   })
 
@@ -53,6 +52,7 @@ now_if_args(function()
     'typescript',
     'tsx',
     'css',
+    'svelte'
     -- To see available languages:
     -- - Execute `:=require('nvim-treesitter').get_available()`
     -- - Visit 'SUPPORTED_LANGUAGES.md' file at
@@ -126,17 +126,18 @@ later(function()
     -- Make sure that necessary CLI tool is available
     formatters_by_ft = {
       lua = { 'stylua' },
-      javascript = { "prettierd", "prettier", stop_after_first = true },
-      typescript = { "prettierd", "prettier", stop_after_first = true }
+      javascript = { "prettier", stop_after_first = true },
+      typescript = { "prettier", stop_after_first = true },
+      css = { "prettier", "stylehint", stop_after_first = false },
     },
   })
 end)
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
-  callback = function(args)
-    require("conform").format({ bufnr = args.buf })
-  end,
-})
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--   pattern = "*",
+--   callback = function(args)
+--     require("conform").format({ bufnr = args.buf })
+--   end,
+-- })
 
 -- Snippets ===================================================================
 
@@ -159,7 +160,7 @@ later(function() add('rafamadriz/friendly-snippets') end)
 -- If you need them to work elsewhere, consider using other package managers.
 --
 -- You can use it like so:
-later(function()
+now_if_args(function()
   add('mason-org/mason.nvim')
   add('mason-org/mason-lspconfig.nvim')
   require('mason').setup()
@@ -235,10 +236,25 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 vim.lsp.enable({
-  'ts_ls',
-  'astro',
-  'eslint',
-  'rust_analyzer',
-  'marksman',
+  -- 'ts_ls',
   'lua_ls'
+})
+vim.lsp.config('rust_analyzer', {
+  settings = {
+    ["rust_analyzer"] = {
+      -- Other Settings ...
+      procMacro = {
+        ignored = {
+          leptos_macro = {
+            -- optional: --
+            -- "component",
+            "server",
+          },
+        },
+      },
+      cargo = {
+        features = "all"
+      }
+    }
+  }
 })
