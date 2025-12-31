@@ -248,7 +248,7 @@ vim.lsp.config('rust_analyzer', {
           leptos_macro = {
             -- optional: --
             -- "component",
-            "server",
+            -- "server",
           },
         },
       },
