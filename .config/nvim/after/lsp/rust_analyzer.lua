@@ -1,17 +1,20 @@
 vim.lsp.config('rust_analyzer', {
-  -- Other Configs ...
   settings = {
-    ["rust-analyzer"] = {
+    ["rust_analyzer"] = {
+      cargo = {
+        allFeatures = true,
+        features = { "ssr" }
+      },
       -- Other Settings ...
       procMacro = {
         ignored = {
           leptos_macro = {
             -- optional: --
-            -- "component",
+            "component",
             "server",
           },
         },
       },
-    },
+    }
   }
 })

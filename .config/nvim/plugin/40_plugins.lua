@@ -239,22 +239,3 @@ vim.lsp.enable({
   -- 'ts_ls',
   'lua_ls'
 })
-vim.lsp.config('rust_analyzer', {
-  settings = {
-    ["rust_analyzer"] = {
-      -- Other Settings ...
-      procMacro = {
-        ignored = {
-          leptos_macro = {
-            -- optional: --
-            -- "component",
-            -- "server",
-          },
-        },
-      },
-      cargo = {
-        features = "all"
-      }
-    }
-  }
-})
