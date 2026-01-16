@@ -28,6 +28,13 @@ local now_if_args = _G.Config.now_if_args
 --   textobjects (see `:h text-objects`, `:h MiniAi.gen_spec.treesitter()`).
 --
 -- Add these plugins now if file (and not 'mini.starter') is shown after startup.
+--
+-- -- Troubleshooting:
+-- - Run `:checkhealth vim.treesitter nvim-treesitter` to see potential issues.
+-- - In case of errors related to queries for Neovim bundled parsers (like `lua`,
+--   `vimdoc`, `markdown`, etc.), manually install them via 'nvim-treesitter'
+--   with `:TSInstall <language>`. Be sure to have necessary system dependencies
+--   (see MiniMax README section for software requirements).
 now_if_args(function()
   add({
     source = 'nvim-treesitter/nvim-treesitter',
@@ -52,7 +59,8 @@ now_if_args(function()
     'typescript',
     'tsx',
     'css',
-    'svelte'
+    'svelte',
+    'rust'
     -- To see available languages:
     -- - Execute `:=require('nvim-treesitter').get_available()`
     -- - Visit 'SUPPORTED_LANGUAGES.md' file at
@@ -100,6 +108,11 @@ now_if_args(function()
   -- vim.lsp.enable({
   --   -- For example, if `lua-language-server` is installed, use `'lua_ls'` entry
   -- })
+  vim.lsp.enable({
+    -- 'ts_ls',
+    'lua_ls',
+    'rust_analyzer'
+  })
 end)
 
 -- Formatting =================================================================
@@ -118,6 +131,10 @@ later(function()
   -- - `:h conform-options`
   -- - `:h conform-formatters`
   require('conform').setup({
+    default_format_opts = {
+      -- Allow formatting from LSP server if no dedicated formatter is available
+      lsp_format = 'fallback',
+    },
     format_on_save = {
       timeout_ms = 500,
       lsp_format = "fallback",
@@ -129,6 +146,7 @@ later(function()
       javascript = { "prettier", stop_after_first = true },
       typescript = { "prettier", stop_after_first = true },
       css = { "prettier", "stylehint", stop_after_first = false },
+      rust = { "rustfmt" }
     },
   })
 end)
@@ -235,7 +253,27 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
-vim.lsp.enable({
-  -- 'ts_ls',
-  'lua_ls'
+
+vim.lsp.config('rust_analyzer', {
+  settings = {
+    ["rust_analyzer"] = {
+      cargo = {
+        features = { "ssr" }
+      },
+      check = {
+        command = "clippy",
+      },
+      -- Other Settings ...
+      procMacro = {
+        enable = true,
+        ignored = {
+          leptos_macro = {
+            -- optional: --
+            -- "component",
+            "server",
+          },
+        },
+      },
+    }
+  }
 })

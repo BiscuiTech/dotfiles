@@ -90,7 +90,15 @@ _G.Config.now_if_args = vim.fn.argc(-1) > 0 and MiniDeps.now or MiniDeps.later
 
 -- CUSTOM
 
-vim.keymap.set('n','L', ':bn<CR>')
-vim.keymap.set('n','H', ':bp<CR>')
+vim.keymap.set('n', 'L', ':bn<CR>')
+vim.keymap.set('n', 'H', ':bp<CR>')
 
-MiniDeps.add({source = 'projekt0n/github-nvim-theme', checkout = "main"})
+MiniDeps.add({ source = 'projekt0n/github-nvim-theme', checkout = "main" })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "qf",
+  callback = function()
+    -- Map <CR> to select the item and then close the quickfix/location list
+    vim.keymap.set("n", "<CR>", "<CR>:cclose<CR>", { buffer = true })
+  end,
+})
