@@ -10,7 +10,7 @@
 
 -- Make concise helpers for installing/adding plugins in two stages
 local add, later = MiniDeps.add, MiniDeps.later
-local now_if_args = _G.Config.now_if_args
+local now_if_args = Config.now_if_args
 
 -- Tree-sitter ================================================================
 
@@ -41,14 +41,11 @@ now_if_args(function()
     -- Update tree-sitter parser after plugin is updated
     hooks = { post_checkout = function() vim.cmd('TSUpdate') end },
   })
-  add({
-    source = 'nvim-treesitter/nvim-treesitter-textobjects',
-    -- Use `main` branch since `master` branch is frozen, yet still default
-    -- It is needed for compatibility with 'nvim-treesitter' `main` branch
-    checkout = 'main',
-  })
+  add('nvim-treesitter/nvim-treesitter-textobjects')
 
   -- Define languages which will have parsers installed and auto enabled
+  -- After changing this, restart Neovim once to install necessary parsers. Wait
+  -- for the installation to finish before opening a file for added language(s).
   local languages = {
     -- These are already pre-installed with Neovim. Used as an example.
     'lua',
@@ -64,7 +61,7 @@ now_if_args(function()
     -- To see available languages:
     -- - Execute `:=require('nvim-treesitter').get_available()`
     -- - Visit 'SUPPORTED_LANGUAGES.md' file at
-    --   https://github.com/nvim-treesitter/nvim-treesitter/blob/main
+    --   https://github.com/nvim-treesitter/nvim-treesitter
   }
   local isnt_installed = function(lang)
     return #vim.api.nvim_get_runtime_file('parser/' .. lang .. '.*', false) == 0
@@ -80,7 +77,7 @@ now_if_args(function()
     end
   end
   local ts_start = function(ev) vim.treesitter.start(ev.buf) end
-  _G.Config.new_autocmd('FileType', filetypes, ts_start, 'Start tree-sitter')
+  Config.new_autocmd('FileType', filetypes, ts_start, 'Start tree-sitter')
 end)
 
 -- Language servers ===========================================================
